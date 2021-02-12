@@ -2,7 +2,6 @@ import React from 'react';
 import './collection-item.styles.scss';
 
 const CollectionItem = (props) => {
-	console.log(props);
 	const { name, imageUrl, price } = props;
 	return (
 		<div className="collection-item">
