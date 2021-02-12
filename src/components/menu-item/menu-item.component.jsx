@@ -1,5 +1,5 @@
 import React from 'react';
-import './MenuItem.styles.scss';
+import './menu-item.styles.scss';
 
 const withRouter = require('react-router-dom').withRouter;
 
