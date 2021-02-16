@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
 import './header.styles.scss';
-
 import { auth } from '../../firebase/firebase.utils';
+
+import { connect } from 'react-redux';
 
 const Header = ({ currentUser }) => {
 	return (
@@ -19,9 +20,7 @@ const Header = ({ currentUser }) => {
 					CONTACT
 				</Link>
 				{currentUser ? (
-					<div
-						className="option"
-						onClick={() => auth.signOut()}>
+					<div className="option" onClick={() => auth.signOut()}>
 						SIGN OUT
 					</div>
 				) : (
@@ -33,4 +32,9 @@ const Header = ({ currentUser }) => {
 		</div>
 	);
 };
-export default Header;
+
+const mapStateToProps = ({ user: { currentUser } }) => ({
+	currentUser: currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
